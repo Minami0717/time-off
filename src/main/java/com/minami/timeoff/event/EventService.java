@@ -25,7 +25,7 @@ public class EventService {
     @Value("${api-key}")
     private String apiKey;
 
-    public List<EventDto> getEventByAreaCode(String areaCode) throws JsonProcessingException {
+    public List<EventDto> getEventByAreaCode(String areaCode) throws Exception {
         String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 
         String json = webClient.get().uri(uriBuilder -> uriBuilder.path("/searchFestival1")
@@ -46,9 +46,10 @@ public class EventService {
         JsonNode jsonNode = om.readTree(json);
 
         List<EventDto> eventList = om.convertValue(jsonNode.at("/response/body/items/item"), new TypeReference<>() {});
-        eventList.sort(Comparator.comparing(EventDto::getStartDate).reversed());
-        eventList.forEach(eventDto -> log.info("e: {}", eventDto));
 
+        if (eventList == null) { return null; }
+
+        eventList.sort(Comparator.comparing(EventDto::getStartDate).reversed());
         if (eventList.size() > 4) {
             eventList = eventList.subList(0, 4);
         }

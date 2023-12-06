@@ -19,7 +19,7 @@ public class EventController {
 
     @Operation(summary = "지역별 진행 중인 행사 목록")
     @GetMapping("{areaCode}")
-    public List<EventDto> getEventByAreaCode(@PathVariable @Parameter(description = "지역코드", example = "1") String areaCode) throws JsonProcessingException {
+    public List<EventDto> getEventByAreaCode(@PathVariable @Parameter(description = "지역코드", example = "1") String areaCode) throws Exception {
         return service.getEventByAreaCode(areaCode);
     }
 }
