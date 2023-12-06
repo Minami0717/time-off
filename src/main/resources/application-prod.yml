@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://${HOST}:${PORT}/${DATABASE_NAME}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# swagger
+springdoc:
+  swagger-ui:
+    path: /swagger.html
+
+api-key: ${API_KEY}

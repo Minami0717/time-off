@@ -1,21 +1,17 @@
-package com.minami.timeoff.recoEvent;
+package com.minami.timeoff.event;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.minami.timeoff.recoEvent.model.EventDto;
+import com.minami.timeoff.event.model.EventDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.util.UriBuilder;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -23,7 +19,7 @@ import java.util.*;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class RecoEventService {
+public class EventService {
     private final WebClient webClient;
 
     @Value("${api-key}")

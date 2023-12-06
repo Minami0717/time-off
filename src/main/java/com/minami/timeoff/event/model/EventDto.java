@@ -1,4 +1,4 @@
-package com.minami.timeoff.recoEvent.model;
+package com.minami.timeoff.event.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.ToString;
