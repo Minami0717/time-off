@@ -1,10 +1,12 @@
 package com.minami.timeoff.event.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Setter;
 import lombok.ToString;
 
 @ToString
 public class EventDto {
+    @Setter
     private String title;
     private String startDate;
     private String endDate;
@@ -34,10 +36,6 @@ public class EventDto {
     @JsonProperty("img")
     public String getImg() {
         return img;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     @JsonProperty("eventstartdate")
